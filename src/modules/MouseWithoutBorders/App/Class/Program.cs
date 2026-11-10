@@ -137,7 +137,8 @@ namespace MouseWithoutBorders.Class
                     }
                 }
 
-                ShutdownWithPowerToys.WaitForPowerToysRunner(etwTrace);
+                // Standalone build: do not couple MWB lifetime to PowerToys Runner.
+                ////ShutdownWithPowerToys.WaitForPowerToysRunner(etwTrace);
 
                 if (firstArg != string.Empty)
                 {

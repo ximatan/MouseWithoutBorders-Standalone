@@ -303,8 +303,12 @@ internal static class Helper
 
         if (!Common.MainForm.IsDisposed)
         {
-            Common.MainForm.NotifyIcon.Visible = false;
-            Common.MainForm.NotifyIcon.Visible = Setting.Values.ShowOriginalUI;
+            bool showOriginalUI = Setting.Values.ShowOriginalUI;
+
+            if (Common.MainForm.NotifyIcon.Visible != showOriginalUI)
+            {
+                Common.MainForm.NotifyIcon.Visible = showOriginalUI;
+            }
         }
 
         IntPtr h = (IntPtr)NativeMethods.FindWindow(null, Helper.HELPER_FORM_TEXT);

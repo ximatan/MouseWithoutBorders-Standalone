@@ -867,8 +867,12 @@ internal static class MachineStuff
 
                 if (Common.MainForm != null)
                 {
-                    Common.MainForm.NotifyIcon.Visible = false;
-                    Common.MainForm.NotifyIcon.Visible = Setting.Values.ShowOriginalUI;
+                    bool showOriginalUI = Setting.Values.ShowOriginalUI;
+
+                    if (Common.MainForm.NotifyIcon.Visible != showOriginalUI)
+                    {
+                        Common.MainForm.NotifyIcon.Visible = showOriginalUI;
+                    }
                 }
             }
             else

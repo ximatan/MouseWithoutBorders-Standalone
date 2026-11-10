@@ -402,10 +402,12 @@ namespace MouseWithoutBorders
 
                             if (!Common.RunOnScrSaverDesktop && !Common.RunOnLogonDesktop)
                             {
-                                NotifyIcon.Visible = false;
-                                NotifyIcon.Visible = Setting.Values.ShowOriginalUI;
+                                bool showOriginalUI = Setting.Values.ShowOriginalUI;
 
-                                // Common.ReHookClipboard();
+                                if (NotifyIcon.Visible != showOriginalUI)
+                                {
+                                    NotifyIcon.Visible = showOriginalUI;
+                                }
                             }
 
                             Helper.RunDDHelper();
@@ -954,10 +956,14 @@ namespace MouseWithoutBorders
 
             Common.MainForm = this;
             Hide();
-            if (!Common.RunOnLogonDesktop && !Common.RunOnScrSaverDesktop)
+            if (!Common.RunOnScrSaverDesktop && !Common.RunOnLogonDesktop)
             {
-                NotifyIcon.Visible = false;
-                NotifyIcon.Visible = Setting.Values.ShowOriginalUI;
+                bool showOriginalUI = Setting.Values.ShowOriginalUI;
+
+                if (NotifyIcon.Visible != showOriginalUI)
+                {
+                    NotifyIcon.Visible = showOriginalUI;
+                }
             }
 
             if (Program.ShowServiceModeErrorTooltip)

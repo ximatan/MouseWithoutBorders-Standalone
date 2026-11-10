@@ -195,7 +195,7 @@ namespace Microsoft.PowerToys.Settings.UI.Library
             EasyMouse = new IntProperty(1);
             MachineMatrixString = new List<string>();
             DeviceID = new StringProperty(string.Empty);
-            ShowOriginalUI = false;
+            ShowOriginalUI = true;
             UseService = false;
 
             DisableEasyMouseWhenForegroundWindowIsFullscreen = true;
